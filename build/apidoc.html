@@ -1,0 +1,3432 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >mach (v1.3.8)</a>
+</h1>
+<h4>HTTP for JavaScript</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mach">module mach</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Connection">
+            function <span class="apidocSignatureSpan">mach.</span>Connection
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Header">
+            function <span class="apidocSignatureSpan">mach.</span>Header
+            <span class="apidocSignatureSpan">(name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Location">
+            function <span class="apidocSignatureSpan">mach.</span>Location
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Message">
+            function <span class="apidocSignatureSpan">mach.</span>Message
+            <span class="apidocSignatureSpan">(content, headers)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser">
+            function <span class="apidocSignatureSpan">mach.</span>Parser
+            <span class="apidocSignatureSpan">(boundary, partHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise">
+            function <span class="apidocSignatureSpan">mach.</span>Promise
+            <span class="apidocSignatureSpan">(resolver, handler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.basicAuth">
+            function <span class="apidocSignatureSpan">mach.</span>basicAuth
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.bind">
+            function <span class="apidocSignatureSpan">mach.</span>bind
+            <span class="apidocSignatureSpan">(app, nodeServer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.call">
+            function <span class="apidocSignatureSpan">mach.</span>call
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.catch">
+            function <span class="apidocSignatureSpan">mach.</span>catch
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.charset">
+            function <span class="apidocSignatureSpan">mach.</span>charset
+            <span class="apidocSignatureSpan">(app, defaultCharset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.contentType">
+            function <span class="apidocSignatureSpan">mach.</span>contentType
+            <span class="apidocSignatureSpan">(app, defaultType)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.createConnection">
+            function <span class="apidocSignatureSpan">mach.</span>createConnection
+            <span class="apidocSignatureSpan">(nodeRequest)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.createProxy">
+            function <span class="apidocSignatureSpan">mach.</span>createProxy
+            <span class="apidocSignatureSpan">(location)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.delete">
+            function <span class="apidocSignatureSpan">mach.</span>delete
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.extend">
+            function <span class="apidocSignatureSpan">mach.</span>extend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.favicon">
+            function <span class="apidocSignatureSpan">mach.</span>favicon
+            <span class="apidocSignatureSpan">(app, response)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.file">
+            function <span class="apidocSignatureSpan">mach.</span>file
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.get">
+            function <span class="apidocSignatureSpan">mach.</span>get
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.gzip">
+            function <span class="apidocSignatureSpan">mach.</span>gzip
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.head">
+            function <span class="apidocSignatureSpan">mach.</span>head
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.logger">
+            function <span class="apidocSignatureSpan">mach.</span>logger
+            <span class="apidocSignatureSpan">(app, messageHandler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.mapper">
+            function <span class="apidocSignatureSpan">mach.</span>mapper
+            <span class="apidocSignatureSpan">(app, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.methodOverride">
+            function <span class="apidocSignatureSpan">mach.</span>methodOverride
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.modified">
+            function <span class="apidocSignatureSpan">mach.</span>modified
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.options">
+            function <span class="apidocSignatureSpan">mach.</span>options
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.params">
+            function <span class="apidocSignatureSpan">mach.</span>params
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.post">
+            function <span class="apidocSignatureSpan">mach.</span>post
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.proxy">
+            function <span class="apidocSignatureSpan">mach.</span>proxy
+            <span class="apidocSignatureSpan">(app, target, test)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.put">
+            function <span class="apidocSignatureSpan">mach.</span>put
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.rewrite">
+            function <span class="apidocSignatureSpan">mach.</span>rewrite
+            <span class="apidocSignatureSpan">(app, pattern, replacement)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.router">
+            function <span class="apidocSignatureSpan">mach.</span>router
+            <span class="apidocSignatureSpan">(app, map)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.serve">
+            function <span class="apidocSignatureSpan">mach.</span>serve
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.session">
+            function <span class="apidocSignatureSpan">mach.</span>session
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.stack">
+            function <span class="apidocSignatureSpan">mach.</span>stack
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.token">
+            function <span class="apidocSignatureSpan">mach.</span>token
+            <span class="apidocSignatureSpan">(app, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.trace">
+            function <span class="apidocSignatureSpan">mach.</span>trace
+            <span class="apidocSignatureSpan">(app, options, modifier)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mach.</span>Parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mach.</span>Promise.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">mach.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mach.Parser">module mach.Parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.Parser">
+            function <span class="apidocSignatureSpan">mach.</span>Parser
+            <span class="apidocSignatureSpan">(boundary, partHandler)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mach.Parser.prototype">module mach.Parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype._callback">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_callback
+            <span class="apidocSignatureSpan">(name, chunk, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype._clear">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_clear
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype._dataCallback">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_dataCallback
+            <span class="apidocSignatureSpan">(name, chunk, clear, i)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype._mark">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_mark
+            <span class="apidocSignatureSpan">(name, i)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.execute">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>execute
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.finish">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>finish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onHeaderEnd">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onHeaderName">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderName
+            <span class="apidocSignatureSpan">(chunk, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onHeaderValue">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderValue
+            <span class="apidocSignatureSpan">(chunk, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onHeadersEnd">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeadersEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onPartBegin">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartBegin
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onPartData">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartData
+            <span class="apidocSignatureSpan">(chunk, start, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Parser.prototype.onPartEnd">
+            function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mach.Promise">module mach.Promise</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.Promise">
+            function <span class="apidocSignatureSpan">mach.</span>Promise
+            <span class="apidocSignatureSpan">(resolver, handler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise._defer">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>_defer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise._handler">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>_handler
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise._traverse">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>_traverse
+            <span class="apidocSignatureSpan">(f, promises)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise._visitRemaining">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>_visitRemaining
+            <span class="apidocSignatureSpan">(promises, start, handler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.all">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>all
+            <span class="apidocSignatureSpan">(promises)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.createContext">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>createContext
+            <span class="apidocSignatureSpan">(p, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.enterContext">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>enterContext
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.exitContext">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>exitContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.never">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>never
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.onFatalRejection">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>onFatalRejection
+            <span class="apidocSignatureSpan">(rejection, extraContext)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.onPotentiallyUnhandledRejection">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>onPotentiallyUnhandledRejection
+            <span class="apidocSignatureSpan">(rejection, extraContext)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.onPotentiallyUnhandledRejectionHandled">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>onPotentiallyUnhandledRejectionHandled
+            <span class="apidocSignatureSpan">(rejection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.race">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>race
+            <span class="apidocSignatureSpan">(promises)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.reject">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>reject
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.resolve">
+            function <span class="apidocSignatureSpan">mach.Promise.</span>resolve
+            <span class="apidocSignatureSpan">(x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mach.Promise.prototype">module mach.Promise.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.prototype._beget">
+            function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>_beget
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.prototype.catch">
+            function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>catch
+            <span class="apidocSignatureSpan">(onRejected)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mach.Promise.prototype.then">
+            function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>then
+            <span class="apidocSignatureSpan">(onFulfilled, onRejected, onProgress)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mach" id="apidoc.module.mach">module mach</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Connection" id="apidoc.element.mach.Connection">
+        function <span class="apidocSignatureSpan">mach.</span>Connection
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(options) {
+  options = options || {};
+
+  var location;
+  if (typeof options === &#x22;string&#x22;) {
+    location = options; // options may be a URL string.
+  } else if (options.location || options.url) {
+    location = options.location || options.url;
+  } else if (typeof window === &#x22;object&#x22;) {
+    location = window.location.href;
+  }
+
+  this.location = location;
+  this.version = options.version || &#x22;1.1&#x22;;
+  this.method = options.method;
+
+  this.onError = (options.onError || defaultErrorHandler).bind(this);
+  this.onClose = (options.onClose || defaultCloseHandler).bind(this);
+  this.request = new Message(options.content, options.headers);
+  this.response = new Message();
+
+  // Params may be given as an object.
+  if (options.params) {
+    if (this.method === &#x22;GET&#x22; || this.method === &#x22;HEAD&#x22;) {
+      this.query = options.params;
+    } else {
+      this.request.contentType = &#x22;application/x-www-form-urlencoded&#x22;;
+      this.request.content = stringifyQuery(options.params);
+    }
+  }
+
+  this.withCredentials = options.withCredentials || false;
+  this.remoteHost = options.remoteHost || null;
+  this.remoteUser = options.remoteUser || null;
+  this.basename = &#x22;&#x22;;
+
+  this.responseText = null;
+  this.status = 200;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Header" id="apidoc.element.mach.Header">
+        function <span class="apidocSignatureSpan">mach.</span>Header
+        <span class="apidocSignatureSpan">(name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Header(name, value) {
+  _classCallCheck(this, Header);
+
+  this.name = name;
+  this.value = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Location" id="apidoc.element.mach.Location">
+        function <span class="apidocSignatureSpan">mach.</span>Location
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Location(options) {
+  this.properties = {};
+
+  if (typeof options === &#x22;string&#x22;) {
+    this.href = options;
+  } else if (options) {
+    setProperties(this, options);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Message" id="apidoc.element.mach.Message">
+        function <span class="apidocSignatureSpan">mach.</span>Message
+        <span class="apidocSignatureSpan">(content, headers)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Message(content, headers) {
+  this.headers = headers;
+  this.content = content;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser" id="apidoc.element.mach.Parser">
+        function <span class="apidocSignatureSpan">mach.</span>Parser
+        <span class="apidocSignatureSpan">(boundary, partHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(boundary, partHandler) {
+  this.boundary = bodec.fromRaw(&#x27;\r\n--&#x27; + boundary);
+  this.lookBehind = bodec.create(this.boundary.length + 8);
+  this.boundaryChars = {};
+
+  var i = this.boundary.length;
+  while (i)
+    this.boundaryChars[this.boundary[--i]] = true;
+
+  this.state = S.START;
+  this.index = null;
+  this.flags = 0;
+
+  if (typeof partHandler !== &#x27;function&#x27;)
+    throw new Error(&#x27;multipart.Parser needs a part handler&#x27;);
+
+  this.onPart = partHandler;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise" id="apidoc.element.mach.Promise">
+        function <span class="apidocSignatureSpan">mach.</span>Promise
+        <span class="apidocSignatureSpan">(resolver, handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise(resolver, handler) {
+			this._handler = resolver === Handler ? handler : init(resolver);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.basicAuth" id="apidoc.element.mach.basicAuth">
+        function <span class="apidocSignatureSpan">mach.</span>basicAuth
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function basicAuth(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;function&#x22;) options = { validate: options };
+
+  if (typeof options.validate !== &#x22;function&#x22;) throw new Error(&#x22;mach.basicAuth needs a validation function&#x22;);
+
+  var realm = options.realm || &#x22;Authorization Required&#x22;;
+
+  return function (conn) {
+    if (conn.remoteUser) return conn.call(app); // Don&#x27;t overwrite existing remoteUser.
+
+    var credentials = conn.auth.split(&#x22;:&#x22;, 2);
+    var username = credentials[0],
+        password = credentials[1];
+
+    return Promise.resolve(options.validate(username, password)).then(function (user) {
+      if (user) {
+        conn.remoteUser = user === true ? username : user;
+        return conn.call(app);
+      }
+
+      conn.response.headers[&#x22;WWW-Authenticate&#x22;] = &#x22;Basic realm=\&#x22;&#x22; + realm + &#x22;\&#x22;&#x22;;
+      conn.text(401, &#x22;Not Authorized&#x22;);
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `remoteUser` request variable.
+*
+* When authorization fails, the client automatically receives a 401 Unauthorized
+* response with the appropriate challenge in the WWW-Authenticate header.
+*
+* Example:
+*
+*   mach.<span class="apidocCodeKeywordSpan">basicAuth</span>(app, function (user, pass) {
+*     // Return a boolean value to indicate the given credentials are valid.
+*     return (user === &#x27;admin&#x27; &#x26;&#x26; pass === &#x27;secret&#x27;);
+*   });
+*
+*   mach.basicAuth(app, function (user, pass) {
+*     // Return a promise for the actual username to use.
+*     return query(&#x27;SELECT username FROM users WHERE handle=? AND password=?&#x27;, user, pass);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.bind" id="apidoc.element.mach.bind">
+        function <span class="apidocSignatureSpan">mach.</span>bind
+        <span class="apidocSignatureSpan">(app, nodeServer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function bindApp(app, nodeServer) {
+  var requestHandler = createRequestHandler(app);
+  nodeServer.on(&#x22;request&#x22;, requestHandler);
+  return requestHandler;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  location = window.location.href;
+}
+
+this.location = location;
+this.version = options.version || &#x27;1.1&#x27;;
+this.method = options.method;
+
+this.onError = (options.onError || defaultErrorHandler).<span class="apidocCodeKeywordSpan">bind</span>(this);
+this.onClose = (options.onClose || defaultCloseHandler).bind(this);
+this.request = new Message(options.content, options.headers);
+this.response = new Message;
+
+// Params may be given as an object.
+if (options.params) {
+  if (this.method === &#x27;GET&#x27; || this.method === &#x27;HEAD&#x27;) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.call" id="apidoc.element.mach.call">
+        function <span class="apidocSignatureSpan">mach.</span>call
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function callApp(app, options, modifier) {
+  options = options || {};
+
+  var c = new Connection(options);
+
+  return Promise.resolve(modifier ? modifier(c) : c).then(function (conn) {
+    if (conn == null || !(conn instanceof Connection)) conn = c;
+
+    return conn.call(app).then(function () {
+      if (options.binary) return conn;
+
+      return conn.response.stringifyContent(options.maxLength, options.encoding).then(function (content) {
+        conn.responseText = content;
+        return conn;
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        options = {};
+      } else { // get(app, options, modifier)
+        options = objectAssign({}, options || {});
+      }
+
+      options.method = method;
+
+      return mach.<span class="apidocCodeKeywordSpan">call</span>(app, options, modifier);
+    };
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.catch" id="apidoc.element.mach.catch">
+        function <span class="apidocSignatureSpan">mach.</span>catch
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function catchError(app) {
+  return function (conn) {
+    return conn.call(app).then(undefined, function (reason) {
+      if (reason instanceof Error) throw reason;
+
+      return reason;
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * A middleware that &#x22;catches&#x22; non-Errors that are thrown from the downstream
+ * app and returns them instead. This can be useful for breaking out of a
+ * nested promise chain, for example.
+ *
+ * Example:
+ *
+ *   mach.<span class="apidocCodeKeywordSpan">catch</span>(function (conn) {
+ *     throw 200;
+ *   });
+ */
+function catchError(app) {
+return function (conn) {
+  return conn.call(app).then(undefined, function (reason) {
+    if (reason instanceof Error)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.charset" id="apidoc.element.mach.charset">
+        function <span class="apidocSignatureSpan">mach.</span>charset
+        <span class="apidocSignatureSpan">(app, defaultCharset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function charset(app, defaultCharset) {
+  defaultCharset = defaultCharset || &#x22;utf-8&#x22;;
+
+  return function (conn) {
+    return conn.call(app).then(function () {
+      var response = conn.response;
+
+      if (response.contentType &#x26;&#x26; response.charset == null) response.charset = defaultCharset;
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.contentType" id="apidoc.element.mach.contentType">
+        function <span class="apidocSignatureSpan">mach.</span>contentType
+        <span class="apidocSignatureSpan">(app, defaultType)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function contentType(app, defaultType) {
+  defaultType = defaultType || &#x22;text/html&#x22;;
+
+  return function (conn) {
+    return conn.call(app).then(function () {
+      var headers = conn.response.headers;
+
+      if (!headers[&#x22;Content-Type&#x22;]) headers[&#x22;Content-Type&#x22;] = defaultType;
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.createConnection" id="apidoc.element.mach.createConnection">
+        function <span class="apidocSignatureSpan">mach.</span>createConnection
+        <span class="apidocSignatureSpan">(nodeRequest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createConnection(nodeRequest) {
+  var conn = new Connection({
+    version: nodeRequest.httpVersion,
+    method: nodeRequest.method,
+    location: createLocation(nodeRequest),
+    headers: nodeRequest.headers,
+    content: nodeRequest,
+    remoteHost: nodeRequest.connection.remoteAddress,
+    remotePort: nodeRequest.connection.remotePort
+  });
+
+  nodeRequest.on(&#x22;close&#x22;, function () {
+    conn.onClose();
+  });
+
+  return conn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.createProxy" id="apidoc.element.mach.createProxy">
+        function <span class="apidocSignatureSpan">mach.</span>createProxy
+        <span class="apidocSignatureSpan">(location)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createProxy(location) {
+  if (!(location instanceof Location)) location = new Location(location);
+
+  return function (conn) {
+    // Only concat the path from the connection so the protocol,
+    // auth, and host from the original location are preserved.
+    conn.proxyLocation = location.concat(conn.path);
+
+    return sendRequest(conn, conn.proxyLocation);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### Proxies
+
+Because all Mach applications share the same signature, it&#x27;s easy to combine them in interesting ways. Mach&#x27;s HTTP proxy
+ implementation illustrates this beautifully: a proxy is simply an application that forwards the request somewhere else.
+
+```js
+var proxyApp = mach.<span class="apidocCodeKeywordSpan">createProxy</span>(&#x27;http://twitter.com&#x27;);
+
+// In a server environment we can use the mach.proxy middleware
+// to proxy all requests to the proxy&#x27;s location.
+app.use(mach.proxy, proxyApp);
+
+// In a client application we can call the proxy directly to
+// send a request to the proxy&#x27;s location.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.delete" id="apidoc.element.mach.delete">
+        function <span class="apidocSignatureSpan">mach.</span>delete
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+*   var app = mach.router();
+*
+*   app.get(&#x27;/login&#x27;, function (conn) {
+*     // ...
+*   });
+*
+*   app.<span class="apidocCodeKeywordSpan">delete</span>(&#x27;/users/:id&#x27;, function (conn) {
+*     // ...
+*   });
+*
+* Or all at once:
+*
+*   var app = mach.router({
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.extend" id="apidoc.element.mach.extend">
+        function <span class="apidocSignatureSpan">mach.</span>extend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend() {
+  var extension;
+  for (var i = 0, len = arguments.length; i &#x3c; len; ++i) {
+    extension = arguments[i];
+
+    if (EXTENSIONS.indexOf(extension) === -1) {
+      EXTENSIONS.push(extension);
+      extension(mach);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+/**
+ * The default extension for browser environments.
+ */
+module.exports = function (mach) {
+  mach.<span class="apidocCodeKeywordSpan">extend</span>(require(&#x27;./client&#x27;));
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.favicon" id="apidoc.element.mach.favicon">
+        function <span class="apidocSignatureSpan">mach.</span>favicon
+        <span class="apidocSignatureSpan">(app, response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function favicon(app, response) {
+  response = response || 404;
+
+  return function (conn) {
+    return conn.pathname === &#x22;/favicon.ico&#x22; ? response : conn.call(app);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.file" id="apidoc.element.mach.file">
+        function <span class="apidocSignatureSpan">mach.</span>file
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function file(app, options) {
+  // Allow mach.file(path|options)
+  if (typeof app === &#x22;string&#x22; || typeof app === &#x22;object&#x22;) {
+    options = app;
+    app = null;
+  }
+
+  options = options || {};
+
+  // Allow mach.file(path) and app.use(mach.file, path)
+  if (typeof options === &#x22;string&#x22;) options = { root: options };
+
+  var root = options.root;
+  if (typeof root !== &#x22;string&#x22; || !fs.existsSync(root) || !fs.statSync(root).isDirectory()) throw new Error(&#x22;Invalid root directory
+: &#x22; + root);
+
+  var index = options.index || [];
+  if (index) {
+    if (typeof index === &#x22;string&#x22;) {
+      index = [index];
+    } else if (!Array.isArray(index)) {
+      index = [&#x22;index.html&#x22;];
+    }
+  }
+
+  var useLastModified = &#x22;useLastModified&#x22; in options ? !!options.useLastModified : true;
+  var useETag = !!options.useETag;
+
+  function sendFile(conn, path, stats) {
+    conn.file({
+      path: path,
+      size: stats.size
+    });
+
+    if (useLastModified) conn.response.headers[&#x22;Last-Modified&#x22;] = stats.mtime.toUTCString();
+
+    if (useETag) {
+      return generateETag(path).then(function (etag) {
+        conn.response.headers.ETag = etag;
+      });
+    }
+  }
+
+  return function (conn) {
+    if (conn.method !== &#x22;GET&#x22; &#x26;&#x26; conn.method !== &#x22;HEAD&#x22;) return conn.call(app);
+
+    var pathname = conn.pathname;
+
+    // Reject paths that contain &#x22;..&#x22;.
+    if (pathname.indexOf(&#x22;..&#x22;) !== -1) return conn.text(403, &#x22;Forbidden&#x22;);
+
+    var path = joinPaths(root, pathname);
+
+    return getFileStats(path).then(function (stats) {
+      if (stats &#x26;&#x26; stats.isFile()) return sendFile(conn, path, stats);
+
+      if (!stats || !stats.isDirectory()) return conn.call(app);
+
+      // Try to serve one of the index files.
+      var indexPaths = index.map(function (indexPath) {
+        return joinPaths(path, indexPath);
+      });
+
+      return Promise.all(indexPaths.map(getFileStats)).then(function (stats) {
+        for (var i = 0, len = stats.length; i &#x3c; len; ++i) if (stats[i]) return sendFile(conn, indexPaths[i], stats[i]);
+
+        if (!options.autoIndex) return conn.call(app);
+
+        // Redirect /images =&#x3e; /images/
+        if (!/\/$/.test(pathname)) return conn.redirect(pathname + &#x22;/&#x22;);
+
+        // Automatically generate and serve an index file.
+        return generateIndex(root, pathname, conn.basename).then(function (html) {
+          conn.html(html);
+        });
+      });
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * - type           The Content-Type of the file. Defaults to a guess based
+ *                  on the file extension when a file path is given
+ * - length/size    The Content-Length of the file, if it&#x27;s known. Defaults
+ *                  to the size of the file when a file path is given
+ *
+ * Examples:
+ *
+ *   response.<span class="apidocCodeKeywordSpan">file</span>(&#x27;path/to/file.txt&#x27;);
+ *   response.file(200, &#x27;path/to/file.txt&#x27;);
+ */
+file: d(function (status, options) {
+  if (typeof status === &#x27;number&#x27;) {
+    this.status = status;
+  } else {
+    options = status;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.get" id="apidoc.element.mach.get">
+        function <span class="apidocSignatureSpan">mach.</span>get
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Applications can send responses asynchronously using JavaScript promises. Simply return a promise from your app that resolves when
+ the response is ready.
+
+```js
+var app = mach.stack();
+
+app.use(mach.logger);
+
+app.<span class="apidocCodeKeywordSpan">get</span>(&#x27;/users/:id&#x27;, function (conn) {
+  var id = conn.params.id;
+
+  return getUser(id).then(function (user) {
+    conn.json(200, user);
+  });
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.gzip" id="apidoc.element.mach.gzip">
+        function <span class="apidocSignatureSpan">mach.</span>gzip
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function gzip(app, options) {
+  return function (conn) {
+    return conn.call(app).then(function () {
+      var response = conn.response;
+      var headers = response.headers;
+
+      if (shouldGzipContentType(headers[&#x22;Content-Type&#x22;]) &#x26;&#x26; conn.acceptsEncoding(&#x22;gzip&#x22;)) {
+        response.content = response.content.pipe(zlib.createGzip(options));
+
+        delete headers[&#x22;Content-Length&#x22;];
+        headers[&#x22;Content-Encoding&#x22;] = &#x22;gzip&#x22;;
+        headers.Vary = &#x22;Accept-Encoding&#x22;;
+      }
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.head" id="apidoc.element.mach.head">
+        function <span class="apidocSignatureSpan">mach.</span>head
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">head = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.logger" id="apidoc.element.mach.logger">
+        function <span class="apidocSignatureSpan">mach.</span>logger
+        <span class="apidocSignatureSpan">(app, messageHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function logger(app, messageHandler) {
+  messageHandler = messageHandler || defaultMessageHandler;
+
+  return function (conn) {
+    var startTime = Date.now();
+
+    return conn.call(app).then(function () {
+      var elapsedTime = Date.now() - startTime;
+      var contentLength = conn.response.headers[&#x22;Content-Length&#x22;];
+
+      if (contentLength == null) contentLength = &#x22;-&#x22;;
+
+      var protocol = conn.protocol || &#x22;http:&#x22;;
+      protocol = protocol.substr(0, protocol.length - 1).toUpperCase();
+
+      // 127.0.0.1 - frank [10/Oct/2000 13:55:36] &#x22;GET /apache_pb.gif HTTP/1.0&#x22; 200 2326 0.003
+      messageHandler([conn.remoteHost || &#x22;-&#x22;, &#x22;-&#x22;, // RFC 1413 identity of the client
+      conn.remoteUser || &#x22;-&#x22;, &#x22;[&#x22; + strftime(&#x22;%d/%b/%Y %H:%M:%S&#x22;, new Date()) + &#x22;]&#x22;, &#x22;\&#x22;&#x22; + conn.method + &#x22; &#x22; + conn.basename +
+conn.path + &#x22; &#x22; + protocol + &#x22;/&#x22; + conn.version + &#x22;\&#x22;&#x22;, conn.status, contentLength, elapsedTime / 1000].join(&#x22; &#x22;));
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.mapper" id="apidoc.element.mach.mapper">
+        function <span class="apidocSignatureSpan">mach.</span>mapper
+        <span class="apidocSignatureSpan">(app, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createMapper(app, map) {
+  // Allow mach.mapper(map)
+  if (typeof app === &#x22;object&#x22;) {
+    map = app;
+    app = null;
+  }
+
+  var mappings = [];
+
+  function mapper(conn) {
+    var hostname = conn.hostname;
+    var pathname = conn.pathname;
+
+    var mapping, match, remainingPath;
+    for (var i = 0, len = mappings.length; i &#x3c; len; ++i) {
+      mapping = mappings[i];
+
+      // Try to match the hostname.
+      if (mapping.hostname &#x26;&#x26; mapping.hostname !== hostname) continue;
+
+      // Try to match the path.
+      if (!(match = pathname.match(mapping.pattern))) continue;
+
+      // Skip if the remaining path doesn&#x27;t start with a &#x22;/&#x22;.
+      remainingPath = match[1];
+      if (remainingPath.length &#x3e; 0 &#x26;&#x26; remainingPath[0] !== &#x22;/&#x22;) continue;
+
+      conn.basename += mapping.path;
+
+      return conn.call(mapping.app);
+    }
+
+    return conn.call(app);
+  }
+
+  Object.defineProperties(mapper, {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Adds a new mapping that runs the given app when the location used in the
+     * request matches the given location.
+     */
+</span>    map: d(function (location, app) {
+      var hostname, path;
+
+      // If the location is a fully qualified URL use the host as well.
+      var match = location.match(/^https?:\/\/(.*?)(\/.*)/);
+      if (match) {
+        hostname = match[1].replace(/:\d+$/, &#x22;&#x22;); // Strip the port.
+        path = match[2];
+      } else {
+        path = location;
+      }
+
+      if (path.charAt(0) !== &#x22;/&#x22;) throw new Error(&#x22;Mapping path must start with \&#x22;/\&#x22;, was \&#x22;&#x22; + path + &#x22;\&#x22;&#x22;);
+
+      path = path.replace(/\/$/, &#x22;&#x22;);
+
+      var pattern = new RegExp(&#x22;^&#x22; + escapeRegExp(path).replace(/\/+/g, &#x22;/+&#x22;) + &#x22;(.*)&#x22;);
+
+      mappings.push({
+        hostname: hostname,
+        path: path,
+        pattern: pattern,
+        app: app
+      });
+
+      mappings.sort(byMostSpecific);
+    }),
+
+    /**
+     * Sets the given app as the default for this mapper.
+     */
+    run: d(function (downstreamApp) {
+      app = downstreamApp;
+    })
+
+  });
+
+  // Allow app.use(mach.mapper, map)
+  if (typeof map === &#x22;object&#x22;) for (var location in map) if (map.hasOwnProperty(location)) mapper.map(location, map[location]);
+
+  return mapper;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+*   });
+*
+* This function may also be used outside of the context of a middleware
+* stack to create a standalone app. You can either provide mappings one
+* at a time:
+*
+*   var app = mach.<span class="apidocCodeKeywordSpan">mapper</span>();
+*
+*   app.map(&#x27;/images&#x27;, function (conn) {
+*     // ...
+*   });
+*
+* Or all at once:
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.methodOverride" id="apidoc.element.mach.methodOverride">
+        function <span class="apidocSignatureSpan">mach.</span>methodOverride
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function methodOverride(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;string&#x22;) options = { paramName: options };
+
+  var paramName = options.paramName || &#x22;_method&#x22;;
+  var headerName = normalizeHeaderName(options.headerName || &#x22;X-Http-Method-Override&#x22;);
+
+  return function (conn) {
+    var method;
+    if (conn.request.headers[headerName]) {
+      method = conn.request.headers[headerName];
+    } else if (!conn.params) {
+      conn.onError(new Error(&#x22;No params! Use mach.params in front of mach.methodOverride&#x22;));
+    } else if (conn.params[paramName]) {
+      method = conn.params[paramName];
+
+      // If multiple _method parameters were used, use the last one.
+      if (Array.isArray(method)) method = method[method.length - 1];
+    }
+
+    if (method) conn.method = method.toUpperCase();
+
+    return conn.call(app);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.modified" id="apidoc.element.mach.modified">
+        function <span class="apidocSignatureSpan">mach.</span>modified
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function modified(app) {
+  return function (conn) {
+    return conn.call(app).then(function () {
+      var request = conn.request,
+          response = conn.response;
+
+      var ifNoneMatch = request.headers[&#x22;If-None-Match&#x22;];
+      var etag = response.headers.ETag;
+
+      if (ifNoneMatch &#x26;&#x26; etag &#x26;&#x26; etag === stripQuotes(ifNoneMatch)) {
+        conn.status = 304;
+        response.content = &#x22;&#x22;;
+        return;
+      }
+
+      var ifModifiedSince = request.headers[&#x22;If-Modified-Since&#x22;];
+      var lastModified = response.headers[&#x22;Last-Modified&#x22;];
+
+      if (ifModifiedSince &#x26;&#x26; lastModified) {
+        if (typeof lastModified === &#x22;string&#x22;) lastModified = Date.parse(lastModified);
+
+        if (lastModified &#x3c;= Date.parse(ifModifiedSince)) {
+          conn.status = 304;
+          response.content = &#x22;&#x22;;
+        }
+      }
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.options" id="apidoc.element.mach.options">
+        function <span class="apidocSignatureSpan">mach.</span>options
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.params" id="apidoc.element.mach.params">
+        function <span class="apidocSignatureSpan">mach.</span>params
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseParams(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;number&#x22;) options = { maxLength: options };
+
+  var maxLength = options.maxLength;
+
+  return function (conn) {
+    return conn.getParams(maxLength).then(function (params) {
+      if (conn.params) {
+        // Route params take precedence over content params.
+        conn.params = objectAssign(params, conn.params);
+      } else {
+        conn.params = params;
+      }
+
+      return conn.call(app);
+    }, function (error) {
+      if (error instanceof MaxLengthExceededError) return conn.text(413, &#x22;Request Entity Too Large&#x22;);
+
+      throw error;
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.post" id="apidoc.element.mach.post">
+        function <span class="apidocSignatureSpan">mach.</span>post
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// In a server environment we can use the mach.proxy middleware
+// to proxy all requests to the proxy&#x27;s location.
+app.use(mach.proxy, proxyApp);
+
+// In a client application we can call the proxy directly to
+// send a request to the proxy&#x27;s location.
+mach.<span class="apidocCodeKeywordSpan">post</span>(proxyApp, {
+  params: {
+    username: &#x27;mjackson&#x27;
+  }
+});
+```
+
+### Installation
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.proxy" id="apidoc.element.mach.proxy">
+        function <span class="apidocSignatureSpan">mach.</span>proxy
+        <span class="apidocSignatureSpan">(app, target, test)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function proxy(app, target, test) {
+  test = test || returnTrue;
+
+  if (isRegExp(test)) {
+    var pattern = test;
+    test = function (conn) {
+      return pattern.test(conn.href);
+    };
+  } else if (typeof test !== &#x22;function&#x22;) {
+    throw new Error(&#x22;mach.proxy needs a test function&#x22;);
+  }
+
+  var targetApp;
+  if (typeof target === &#x22;function&#x22;) {
+    targetApp = target;
+  } else if (typeof target === &#x22;string&#x22; || target instanceof Location) {
+    targetApp = createProxy(target);
+  } else {
+    throw new Error(&#x22;mach.proxy needs a target app&#x22;);
+  }
+
+  return function (conn) {
+    return conn.call(test(conn) ? targetApp : app);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.put" id="apidoc.element.mach.put">
+        function <span class="apidocSignatureSpan">mach.</span>put
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.rewrite" id="apidoc.element.mach.rewrite">
+        function <span class="apidocSignatureSpan">mach.</span>rewrite
+        <span class="apidocSignatureSpan">(app, pattern, replacement)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rewrite(app, pattern, replacement) {
+  if (typeof pattern === &#x22;string&#x22;) pattern = new RegExp(&#x22;^&#x22; + escapeRegExp(pattern) + &#x22;$&#x22;);
+
+  if (!isRegExp(pattern)) throw new Error(&#x22;Rewrite pattern must be a RegExp or String&#x22;);
+
+  replacement = replacement || &#x22;&#x22;;
+
+  return function (conn) {
+    var pathname = conn.pathname;
+
+    // Modify the pathname if the pattern matches.
+    if (pattern.test(pathname)) conn.location.properties.pathname = conn.basename + pathname.replace(pattern, replacement);
+
+    return conn.call(app);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.router" id="apidoc.element.mach.router">
+        function <span class="apidocSignatureSpan">mach.</span>router
+        <span class="apidocSignatureSpan">(app, map)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createRouter(app, map) {
+  // Allow mach.router(map)
+  if (typeof app === &#x22;object&#x22;) {
+    map = app;
+    app = null;
+  }
+
+  var routes = {};
+
+  function router(conn) {
+    var method = conn.method;
+    var routesToTry = (routes[method] || []).concat(routes.ANY || []);
+
+    var route, match;
+    for (var i = 0, len = routesToTry.length; i &#x3c; len; ++i) {
+      route = routesToTry[i];
+
+      // Try to match the route.
+      if (match = route.pattern.exec(conn.pathname)) {
+        var params = makeParams(route.keys, Array.prototype.slice.call(match, 1));
+
+        if (conn.params) {
+          // Route params take precedence above all others.
+          objectAssign(conn.params, params);
+        } else {
+          conn.params = params;
+        }
+
+        return conn.call(route.app);
+      }
+    }
+
+    return conn.call(app);
+  }
+
+  Object.defineProperties(router, {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Adds a new route that runs the given app when the pattern matches the
+     * path used in the request. If the pattern is a string, it is automatically
+     * compiled. The following signatures are supported:
+     *
+     *   route(&#x27;/users/:id&#x27;, app)
+     *   route(&#x27;/users/:id&#x27;, &#x27;PUT&#x27;, app)
+     *   route(&#x27;/users/:id&#x27;, [ &#x27;GET&#x27;, &#x27;PUT&#x27; ], app)
+     *   route(&#x27;GET /users/:id&#x27;, app)
+     */
+</span>    route: d(function (pattern, methods, app) {
+      if (typeof methods === &#x22;function&#x22;) {
+        app = methods;
+        methods = null;
+      }
+
+      if (typeof app !== &#x22;function&#x22;) throw new Error(&#x22;Route needs an app&#x22;);
+
+      if (typeof methods === &#x22;string&#x22;) {
+        methods = [methods];
+      } else if (!Array.isArray(methods)) {
+        methods = [];
+      }
+
+      var keys = [];
+
+      if (typeof pattern === &#x22;string&#x22;) {
+        var match;
+
+        if (match = pattern.match(LEADING_HTTP_METHOD_MATCHER)) {
+          methods.push(match[1]);
+          pattern = match[2];
+        }
+
+        pattern = compileRoute(pattern, keys);
+      }
+
+      if (!isRegExp(pattern)) throw new Error(&#x22;Route pattern must be a RegExp&#x22;);
+
+      var route = { pattern: pattern, keys: keys, app: app };
+
+      if (methods.length === 0) methods.push(&#x22;ANY&#x22;);
+
+      methods.forEach(function (method) {
+        var upperMethod = method.toUpperCase();
+
+        if (routes[upperMethod]) {
+          routes[upperMethod].push(route);
+        } else {
+          routes[upperMethod] = [route];
+        }
+      });
+    }),
+
+    /**
+     * Sets the given app as the default for this router.
+     */
+    run: d(function (downstreamApp) {
+      app = downstreamApp;
+    })
+
+  });
+
+  // Allow app.use(mach.router, map)
+  if (typeof map === &#x22;object&#x22;) for (var route in map) if (map.hasOwnProperty(route)) router.route(route, map[route]);
+
+  Object.defineProperties(router, RoutingProperties);
+
+  return router;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*     }
+*
+*   });
+*
+* This function may also be used outside the context of a middleware stack
+* to create a standalone app. Routes may be given one at a time:
+*
+*   var app = mach.<span class="apidocCodeKeywordSpan">router</span>();
+*
+*   app.get(&#x27;/login&#x27;, function (conn) {
+*     // ...
+*   });
+*
+*   app.delete(&#x27;/users/:id&#x27;, function (conn) {
+*     // ...
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.serve" id="apidoc.element.mach.serve">
+        function <span class="apidocSignatureSpan">mach.</span>serve
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serveApp(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;number&#x22;) {
+    options = { port: options };
+  } else if (typeof options === &#x22;string&#x22;) {
+    options = { socket: options };
+  }
+
+  var nodeServer;
+  if (options.key &#x26;&#x26; options.cert) {
+    nodeServer = https.createServer({ key: options.key, cert: options.cert });
+  } else {
+    nodeServer = http.createServer();
+  }
+
+  function shutdown() {
+    if (!options.quiet) console.log(&#x22;&#x3e;&#x3e; Shutting down...&#x22;);
+
+    // Force the process to exit if the server doesn&#x27;t
+    // close all connections within the given timeout.
+    var timer = setTimeout(function () {
+      if (!options.quiet) console.log(&#x22;&#x3e;&#x3e; Exiting&#x22;);
+
+      process.exit(0);
+    }, options.timeout || 100);
+
+    // Don&#x27;t let this timer keep the event loop running.
+    timer.unref();
+
+    nodeServer.close();
+  }
+
+  nodeServer.once(&#x22;listening&#x22;, function () {
+    bindApp(app, nodeServer);
+
+    process.once(&#x22;SIGINT&#x22;, shutdown);
+    process.once(&#x22;SIGTERM&#x22;, shutdown);
+
+    if (!options.quiet) {
+      var address = nodeServer.address();
+      var message = &#x22;&#x3e;&#x3e; mach web server started on node &#x22; + process.versions.node + &#x22;\n&#x22;;
+
+      if (typeof address === &#x22;string&#x22;) {
+        message += &#x22;&#x3e;&#x3e; Listening on &#x22; + address;
+      } else {
+        message += &#x22;&#x3e;&#x3e; Listening on &#x22; + address.address;
+
+        if (address.port) message += &#x22;:&#x22; + address.port;
+      }
+
+      message += &#x22;, use CTRL+C to stop&#x22;;
+
+      console.log(message);
+    }
+  });
+
+  if (options.socket) {
+    nodeServer.listen(options.socket);
+  } else {
+    nodeServer.listen(options.port || DEFAULT_PORT, options.host);
+  }
+
+  return nodeServer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Servers
+
+Writing a &#x22;Hello world&#x22; HTTP server in Mach is simple.
+
+```js
+var mach = require(&#x27;mach&#x27;);
+
+mach.<span class="apidocCodeKeywordSpan">serve</span>(function (conn) {
+  return &#x22;Hello world!&#x22;;
+});
+```
+
+All mach applications receive a single argument: a [Connection](https://github.com/mjackson/mach/blob/master/modules/Connection.
+js) object. This object contains information about both the request and the response, as well as metadata including the `method`
+used in the request, the [location](https://github.com/mjackson/mach/blob/master/modules/Location.js) of the request, the `status
+` of the response, and some helper methods.
+
+Applications can send responses asynchronously using JavaScript promises. Simply return a promise from your app that resolves when
+ the response is ready.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.session" id="apidoc.element.mach.session">
+        function <span class="apidocSignatureSpan">mach.</span>session
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function session(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;string&#x22;) options = { secret: options };
+
+  var secret = options.secret;
+  var name = options.name || &#x22;_session&#x22;;
+  var path = options.path || &#x22;/&#x22;;
+  var domain = options.domain;
+  var expireAfter = options.expireAfter || 0;
+  var httpOnly = &#x22;httpOnly&#x22; in options ? options.httpOnly || false : true;
+  var secure = options.secure || false;
+  var store = options.store || new CookieStore(options);
+
+  if (!secret) {
+    console.warn([&#x22;WARNING: There was no \&#x22;secret\&#x22; option provided to mach.session! This poses&#x22;, &#x22;a security vulnerability because
+ session data will be stored on clients without&#x22;, &#x22;any server-side verification that it has not been tampered with. It is strongly
+&#x22;, &#x22;recommended that you set a secret to prevent exploits that may be attempted using&#x22;, &#x22;carefully crafted cookies.&#x22;].join(&#x22;\n&#x22;));
+  }
+
+  return function (conn) {
+    if (conn.session) return conn.call(app); // Don&#x27;t overwrite the existing session.
+
+    var cookie = conn.request.cookies[name];
+
+    return Promise.resolve(cookie &#x26;&#x26; decodeCookie(cookie, store, secret)).then(function (object) {
+      conn.session = object || {};
+
+      return conn.call(app).then(function () {
+        return Promise.resolve(conn.session &#x26;&#x26; encodeSession(conn.session, store, secret)).then(function (newCookie) {
+          var expires = expireAfter &#x26;&#x26; new Date(Date.now() + expireAfter * 1000);
+
+          // Don&#x27;t bother setting the cookie if its value
+          // hasn&#x27;t changed and there is no expires date.
+          if (newCookie === cookie &#x26;&#x26; !expires) return;
+
+          conn.response.setCookie(name, {
+            value: newCookie,
+            path: path,
+            domain: domain,
+            expires: expires,
+            httpOnly: httpOnly,
+            secure: secure
+          });
+        }, conn.onError);
+      });
+    }, conn.onError);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.stack" id="apidoc.element.mach.stack">
+        function <span class="apidocSignatureSpan">mach.</span>stack
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createStack(app) {
+  var layers = [],
+      mappings = [],
+      routes = [];
+  var compiledApp;
+
+  function compile(app) {
+    if (routes.length) app = routerCreator(routes)(app);
+
+    if (mappings.length) app = mapperCreator(mappings)(app);
+
+    var index = layers.length;
+
+    while (index) app = layers[--index].call(this, app);
+
+    return app;
+  }
+
+  function stack(conn) {
+    return conn.call(compiledApp || (compiledApp = compile(app)));
+  }
+
+  Object.defineProperties(stack, {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Declares that the given `middleware` should be used at the current point
+     * in the stack. Any additional arguments to this function are passed along
+     * to the middleware with the downstream app as the first argument when the
+     * stack is compiled.
+     */
+</span>    use: d(function (middleware) {
+      var args = Array.prototype.slice.call(arguments, 1);
+
+      if (mappings.length) layers.push(mapperCreator(mappings.splice(0, mappings.length)));
+
+      if (routes.length) layers.push(routerCreator(routes.splice(0, routes.length)));
+
+      layers.push(function (app) {
+        return middleware.apply(this, [app].concat(args));
+      });
+
+      compiledApp = null;
+    }),
+
+    /**
+     * Uses a mapper to map a URL path to an app.
+     */
+    map: d(function (location, app) {
+      mappings.push([location, app]);
+      compiledApp = null;
+    }),
+
+    /**
+     * Uses a router to route URLs that match a pattern/method to an app.
+     */
+    route: d(function (pattern, methods, app) {
+      routes.push([pattern, methods, app]);
+      compiledApp = null;
+    }),
+
+    /**
+     * Sets the given app as the default for this stack.
+     */
+    run: d(function (downstreamApp) {
+      app = downstreamApp;
+      compiledApp = null;
+    })
+
+  });
+
+  Object.defineProperties(stack, RoutingProperties);
+
+  return stack;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+All mach applications receive a single argument: a [Connection](https://github.com/mjackson/mach/blob/master/modules/Connection.
+js) object. This object contains information about both the request and the response, as well as metadata including the `method`
+used in the request, the [location](https://github.com/mjackson/mach/blob/master/modules/Location.js) of the request, the `status
+` of the response, and some helper methods.
+
+Applications can send responses asynchronously using JavaScript promises. Simply return a promise from your app that resolves when
+ the response is ready.
+
+```js
+var app = mach.<span class="apidocCodeKeywordSpan">stack</span>();
+
+app.use(mach.logger);
+
+app.get(&#x27;/users/:id&#x27;, function (conn) {
+var id = conn.params.id;
+
+return getUser(id).then(function (user) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.token" id="apidoc.element.mach.token">
+        function <span class="apidocSignatureSpan">mach.</span>token
+        <span class="apidocSignatureSpan">(app, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function verifyToken(app, options) {
+  options = options || {};
+
+  if (typeof options === &#x22;string&#x22;) options = { paramName: options };
+
+  var paramName = options.paramName || &#x22;_token&#x22;;
+  var sessionKey = options.sessionKey || &#x22;_token&#x22;;
+  var byteLength = options.byteLength || 32;
+
+  return function (conn) {
+    var session = conn.session,
+        params = conn.params;
+
+    if (!session) {
+      conn.onError(new Error(&#x22;No session! Use mach.session in front of mach.token&#x22;));
+    } else if (!params) {
+      conn.onError(new Error(&#x22;No params! Use mach.params in front of mach.token&#x22;));
+    } else {
+      var token = session[sessionKey];
+
+      // Create a new session token if needed.
+      if (!token) token = session[sessionKey] = makeToken(byteLength);
+
+      if (params[paramName] &#x26;&#x26; params[paramName] === token) return conn.call(app);
+    }
+
+    // If the request is not a POST we assume it&#x27;s not a form submission
+    // and therefore not modifying anything. Pass it downstream.
+    if (SAFE_METHODS[conn.method] === true) return conn.call(app);
+
+    conn.text(403, &#x22;Forbidden&#x22;);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.trace" id="apidoc.element.mach.trace">
+        function <span class="apidocSignatureSpan">mach.</span>trace
+        <span class="apidocSignatureSpan">(app, options, modifier)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trace = function (app, options, modifier) {
+  if (typeof app !== &#x22;function&#x22;) {
+    modifier = options;
+
+    if (typeof app === &#x22;string&#x22;) {
+      // get(url, modifier)
+      options = { url: app };
+    } else if (app instanceof Location) {
+      // get(location, modifier)
+      options = { location: app };
+    } else {
+      // get(options, modifier)
+      options = objectAssign({}, app || {});
+    }
+
+    app = defaultApp;
+  } else if (typeof options === &#x22;string&#x22;) {
+    // get(app, url, modifier)
+    options = { url: options };
+  } else if (options instanceof Location) {
+    // get(app, location, modifier)
+    options = { location: options };
+  } else if (typeof options !== &#x22;object&#x22;) {
+    // get(app, modifier)
+    modifier = options;
+    options = {};
+  } else {
+    // get(app, options, modifier)
+    options = objectAssign({}, options || {});
+  }
+
+  options.method = method;
+
+  return mach.call(app, options, modifier);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mach.Parser" id="apidoc.module.mach.Parser">module mach.Parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.Parser" id="apidoc.element.mach.Parser.Parser">
+        function <span class="apidocSignatureSpan">mach.</span>Parser
+        <span class="apidocSignatureSpan">(boundary, partHandler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(boundary, partHandler) {
+  this.boundary = bodec.fromRaw(&#x27;\r\n--&#x27; + boundary);
+  this.lookBehind = bodec.create(this.boundary.length + 8);
+  this.boundaryChars = {};
+
+  var i = this.boundary.length;
+  while (i)
+    this.boundaryChars[this.boundary[--i]] = true;
+
+  this.state = S.START;
+  this.index = null;
+  this.flags = 0;
+
+  if (typeof partHandler !== &#x27;function&#x27;)
+    throw new Error(&#x27;multipart.Parser needs a part handler&#x27;);
+
+  this.onPart = partHandler;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mach.Parser.prototype" id="apidoc.module.mach.Parser.prototype">module mach.Parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype._callback" id="apidoc.element.mach.Parser.prototype._callback">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_callback
+        <span class="apidocSignatureSpan">(name, chunk, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_callback = function (name, chunk, start, end) {
+  if (start !== undefined &#x26;&#x26; start === end)
+    return;
+
+  var prop = &#x27;on&#x27; + name.substr(0, 1).toUpperCase() + name.substr(1);
+
+  if (prop in this)
+    this[prop](chunk, start, end);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  index++;
+  break;
+} else if (index == boundaryLength - 1) {
+  if (c != LF) {
+    return i;
+  }
+  index = 0;
+  this.<span class="apidocCodeKeywordSpan">_callback</span>(&#x27;partBegin&#x27;);
+  state = S.HEADER_FIELD_START;
+  break;
+}
+
+if (c != boundary[index + 2]) {
+  return i;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype._clear" id="apidoc.element.mach.Parser.prototype._clear">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_clear
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_clear = function (name) {
+  delete this[name + &#x27;Mark&#x27;];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    case S.HEADER_FIELD_START:
+state = S.HEADER_FIELD;
+this._mark(&#x27;headerName&#x27;, i);
+index = 0;
+/* falls through */
+    case S.HEADER_FIELD:
+if (c == CR) {
+  this.<span class="apidocCodeKeywordSpan">_clear</span>(&#x27;headerName&#x27;);
+  state = S.HEADERS_ALMOST_DONE;
+  break;
+}
+
+index++;
+if (c == HYPHEN) {
+  break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype._dataCallback" id="apidoc.element.mach.Parser.prototype._dataCallback">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_dataCallback
+        <span class="apidocSignatureSpan">(name, chunk, clear, i)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_dataCallback = function (name, chunk, clear, i) {
+  var prop = name + &#x27;Mark&#x27;;
+
+  if (prop in this) {
+    if (!clear) {
+      this._callback(name, chunk, this[prop], chunk.length);
+      this[prop] = 0;
+    } else {
+      this._callback(name, chunk, this[prop], i);
+      delete this[prop];
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (c == COLON) {
+  if (index == 1) {
+    // empty header field
+    return i;
+  }
+  this.<span class="apidocCodeKeywordSpan">_dataCallback</span>(&#x27;headerName&#x27;, chunk, true, i);
+  state = S.HEADER_VALUE_START;
+  break;
+}
+
+cl = c | 0x20; // lower-case
+if (cl &#x3c; 97 || cl &#x3e; 122) { // not between &#x22;a&#x22; and &#x22;z&#x22;
+  return i;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype._mark" id="apidoc.element.mach.Parser.prototype._mark">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>_mark
+        <span class="apidocSignatureSpan">(name, i)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_mark = function (name, i) {
+  this[name + &#x27;Mark&#x27;] = i;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (c != boundary[index + 2]) {
+    return i;
+  }
+  index++;
+  break;
+case S.HEADER_FIELD_START:
+  state = S.HEADER_FIELD;
+  this.<span class="apidocCodeKeywordSpan">_mark</span>(&#x27;headerName&#x27;, i);
+  index = 0;
+  /* falls through */
+case S.HEADER_FIELD:
+  if (c == CR) {
+    this._clear(&#x27;headerName&#x27;);
+    state = S.HEADERS_ALMOST_DONE;
+    break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.execute" id="apidoc.element.mach.Parser.prototype.execute">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>execute
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">execute = function (chunk) {
+  var chunkLength = chunk.length,
+      prevIndex = this.index,
+      index = this.index,
+      state = this.state,
+      flags = this.flags,
+      lookBehind = this.lookBehind,
+      boundary = this.boundary,
+      boundaryChars = this.boundaryChars,
+      boundaryLength = boundary.length,
+      boundaryEnd = boundaryLength - 1,
+      c,
+      cl;
+
+  for (var i = 0; i &#x3c; chunkLength; ++i) {
+    c = chunk[i];
+
+    switch (state) {
+    case S.START:
+      index = 0;
+      state = S.START_BOUNDARY;
+<span class="apidocCodeCommentSpan">      /* falls through */
+</span>    case S.START_BOUNDARY:
+      if (index == boundaryLength - 2) {
+        if (c != CR) {
+          return i;
+        }
+        index++;
+        break;
+      } else if (index == boundaryLength - 1) {
+        if (c != LF) {
+          return i;
+        }
+        index = 0;
+        this._callback(&#x27;partBegin&#x27;);
+        state = S.HEADER_FIELD_START;
+        break;
+      }
+
+      if (c != boundary[index + 2]) {
+        return i;
+      }
+      index++;
+      break;
+    case S.HEADER_FIELD_START:
+      state = S.HEADER_FIELD;
+      this._mark(&#x27;headerName&#x27;, i);
+      index = 0;
+      /* falls through */
+    case S.HEADER_FIELD:
+      if (c == CR) {
+        this._clear(&#x27;headerName&#x27;);
+        state = S.HEADERS_ALMOST_DONE;
+        break;
+      }
+
+      index++;
+      if (c == HYPHEN) {
+        break;
+      }
+
+      if (c == COLON) {
+        if (index == 1) {
+          // empty header field
+          return i;
+        }
+        this._dataCallback(&#x27;headerName&#x27;, chunk, true, i);
+        state = S.HEADER_VALUE_START;
+        break;
+      }
+
+      cl = c | 0x20; // lower-case
+      if (cl &#x3c; 97 || cl &#x3e; 122) { // not between &#x22;a&#x22; and &#x22;z&#x22;
+        return i;
+      }
+      break;
+    case S.HEADER_VALUE_START:
+      if (c == SPACE) {
+        break;
+      }
+      this._mark(&#x27;headerValue&#x27;, i);
+      state = S.HEADER_VALUE;
+      /* falls through */
+    case S.HEADER_VALUE:
+      if (c == CR) {
+        this._dataCallback(&#x27;headerValue&#x27;, chunk, true, i);
+        this._callback(&#x27;headerEnd&#x27;);
+        state = S.HEADER_VALUE_ALMOST_DONE;
+      }
+      break;
+    case S.HEADER_VALUE_ALMOST_DONE:
+      if (c != LF) {
+        return i;
+      }
+      state = S.HEADER_FIELD_START;
+      break;
+    case S.HEADERS_ALMOST_DONE:
+      if (c != LF) {
+        return i;
+      }
+      this._callback(&#x27;headersEnd&#x27;);
+      state = S.PART_DATA_START;
+      break;
+    case S.PART_DATA_START:
+      state = S.PART_DATA;
+      this._mark(&#x27;partData&#x27;, i);
+      /* falls through */
+    case S.PART_DATA:
+      prevIndex = index;
+
+      if (index === 0) {
+        // boyer-moore derrived algorithm to safely skip non-boundary data
+        i += boundaryEnd;
+        while (i &#x3c; chunkLength &#x26;&#x26; !(chunk[i] in boundaryChars)) {
+          i += boundaryLength;
+        }
+        i -= boundaryEnd;
+        c = chunk[i];
+      }
+
+      if (index &#x3c; boundaryLength) {
+        if (boundary[index] == c) {
+          if (index === 0) {
+            this._dataCallback(&#x27;partData&#x27;, chunk, true, i);
+          }
+          index++;
+        } else {
+          index = 0;
+        }
+      } else if (index == boundaryLength) {
+        index++;
+        if (c == CR) {
+          // CR = part boundary
+          flags |= F.PART_BOUNDARY;
+        } else if (c == HYPHEN) {
+          // HYPHEN = end boundary
+          flags |= F.LAST_BOUNDARY;
+        } else {
+          index = 0;
+        }
+      } else if (index - 1 == boundaryLength) {
+        if (flags &#x26; F.PART_BOUNDARY) {
+          index = 0;
+          if (c == LF) {
+            // unset the PART_BOUNDARY flag
+            flags &#x26;= ~F.PART_BOUNDARY;
+            this._callback(&#x27;partEnd&#x27;);
+            this._callback(&#x27;partBegin&#x27;);
+            state = S.HEADER_FIELD_START;
+            break;
+          }
+        } else if (flags &#x26; F.LAST_BOUNDARY) {
+          if (c == HYPHEN) {
+            this._callback(&#x27;partEnd&#x27;);
+            // this._callback(&#x27;end&#x27;);
+            state = S.END;
+          } else {
+            index = 0;
+          }
+        } else {
+          index = 0;
+        }
+      }
+
+      if (index &#x3e; 0) {
+        // when matchin ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+content.on(&#x27;data&#x27;, function (chunk) {
+  var length = chunk.length;
+  contentLength += length;
+
+  if (maxLength &#x26;&#x26; contentLength &#x3e; maxLength) {
+    reject(new MaxLengthExceededError(maxLength));
+  } else {
+    var parsedLength = parser.<span class="apidocCodeKeywordSpan">execute</span>(chunk);
+
+    if (parsedLength !== length)
+      reject(new Error(&#x27;Error parsing multipart body: &#x27; + parsedLength + &#x27; of &#x27; + length + &#x27; bytes parsed
+&#x27;));
+  }
+});
+
+content.on(&#x27;end&#x27;, function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.finish" id="apidoc.element.mach.Parser.prototype.finish">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>finish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">finish = function () {
+  if (this.state !== S.END)
+    throw new Error(&#x27;Stream ended unexpectedly (state: &#x27; + this.state + &#x27;)&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (parsedLength !== length)
+      reject(new Error(&#x27;Error parsing multipart body: &#x27; + parsedLength + &#x27; of &#x27; + length + &#x27; bytes parsed
+&#x27;));
+  }
+});
+
+content.on(&#x27;end&#x27;, function () {
+  try {
+    parser.<span class="apidocCodeKeywordSpan">finish</span>();
+    resolve(resolveProperties(parts));
+  } catch (error) {
+    reject(new Error(&#x27;Error parsing multipart body: &#x27; + error.message));
+  }
+});
+
+content.resume();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onHeaderEnd" id="apidoc.element.mach.Parser.prototype.onHeaderEnd">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onHeaderEnd = function () {
+  this._part.setHeader(this._headerName, this._headerValue);
+  this._headerName = &#x27;&#x27;;
+  this._headerValue = &#x27;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onHeaderName" id="apidoc.element.mach.Parser.prototype.onHeaderName">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderName
+        <span class="apidocSignatureSpan">(chunk, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onHeaderName = function (chunk, start, end) {
+  this._headerName += bodec.toUnicode(chunk, start, end);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onHeaderValue" id="apidoc.element.mach.Parser.prototype.onHeaderValue">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeaderValue
+        <span class="apidocSignatureSpan">(chunk, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onHeaderValue = function (chunk, start, end) {
+  this._headerValue += bodec.toUnicode(chunk, start, end);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onHeadersEnd" id="apidoc.element.mach.Parser.prototype.onHeadersEnd">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onHeadersEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onHeadersEnd = function () {
+  this.onPart(this._part);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onPartBegin" id="apidoc.element.mach.Parser.prototype.onPartBegin">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartBegin
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPartBegin = function () {
+  this._stream = new Stream;
+  this._part = new Message(this._stream);
+  this._headerName = &#x27;&#x27;;
+  this._headerValue = &#x27;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onPartData" id="apidoc.element.mach.Parser.prototype.onPartData">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartData
+        <span class="apidocSignatureSpan">(chunk, start, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPartData = function (chunk, start, end) {
+  this._stream.write(bodec.slice(chunk, start, end));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Parser.prototype.onPartEnd" id="apidoc.element.mach.Parser.prototype.onPartEnd">
+        function <span class="apidocSignatureSpan">mach.Parser.prototype.</span>onPartEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPartEnd = function () {
+  this._stream.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mach.Promise" id="apidoc.module.mach.Promise">module mach.Promise</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.Promise" id="apidoc.element.mach.Promise.Promise">
+        function <span class="apidocSignatureSpan">mach.</span>Promise
+        <span class="apidocSignatureSpan">(resolver, handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise(resolver, handler) {
+			this._handler = resolver === Handler ? handler : init(resolver);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise._defer" id="apidoc.element.mach.Promise._defer">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>_defer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defer() {
+			return new Promise(Handler, new Pending());
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise._handler" id="apidoc.element.mach.Promise._handler">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>_handler
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getHandler(x) {
+			if(isPromise(x)) {
+				return x._handler.join();
+			}
+			return maybeThenable(x) ? getHandlerUntrusted(x) : new Fulfilled(x);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise._traverse" id="apidoc.element.mach.Promise._traverse">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>_traverse
+        <span class="apidocSignatureSpan">(f, promises)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function traverse(f, promises) {
+			return traverseWith(tryCatch2, f, promises);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise._visitRemaining" id="apidoc.element.mach.Promise._visitRemaining">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>_visitRemaining
+        <span class="apidocSignatureSpan">(promises, start, handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function visitRemaining(promises, start, handler) {
+			for(var i=start; i&#x3c;promises.length; ++i) {
+				markAsHandled(getHandler(promises[i]), handler);
+			}
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.all" id="apidoc.element.mach.Promise.all">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>all
+        <span class="apidocSignatureSpan">(promises)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function all(promises) {
+			return traverseWith(snd, null, promises);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return conn.call(app);
+
+      // Try to serve one of the index files.
+      var indexPaths = index.map(function (indexPath) {
+return joinPaths(path, indexPath);
+      });
+
+      return Promise.<span class="apidocCodeKeywordSpan">all</span>(indexPaths.map(getFileStats)).then(function (stats) {
+for (var i = 0, len = stats.length; i &#x3c; len; ++i)
+  if (stats[i])
+    return sendFile(conn, indexPaths[i], stats[i]);
+
+if (!options.autoIndex)
+  return conn.call(app);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.createContext" id="apidoc.element.mach.Promise.createContext">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>createContext
+        <span class="apidocSignatureSpan">(p, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createContext = function (p, context) {
+			p.context = self.createContext(p, context);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.enterContext" id="apidoc.element.mach.Promise.enterContext">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>enterContext
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">enterContext = function (p) {
+			executionContext.push(p.context);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.exitContext" id="apidoc.element.mach.Promise.exitContext">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>exitContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exitContext = function () {
+			executionContext.pop();
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.never" id="apidoc.element.mach.Promise.never">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>never
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function never() {
+			return foreverPendingPromise; // Should be frozen
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.onFatalRejection" id="apidoc.element.mach.Promise.onFatalRejection">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>onFatalRejection
+        <span class="apidocSignatureSpan">(rejection, extraContext)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onFatalRejection = function (rejection, extraContext) {
+			return self.fatal(rejection, extraContext);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.onPotentiallyUnhandledRejection" id="apidoc.element.mach.Promise.onPotentiallyUnhandledRejection">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>onPotentiallyUnhandledRejection
+        <span class="apidocSignatureSpan">(rejection, extraContext)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPotentiallyUnhandledRejection = function (rejection, extraContext) {
+			return self.addTrace(rejection, extraContext);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.onPotentiallyUnhandledRejectionHandled" id="apidoc.element.mach.Promise.onPotentiallyUnhandledRejectionHandled">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>onPotentiallyUnhandledRejectionHandled
+        <span class="apidocSignatureSpan">(rejection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPotentiallyUnhandledRejectionHandled = function (rejection) {
+			return self.removeTrace(rejection);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.race" id="apidoc.element.mach.Promise.race">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>race
+        <span class="apidocSignatureSpan">(promises)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function race(promises) {
+			if(typeof promises !== &#x27;object&#x27; || promises === null) {
+				return reject(new TypeError(&#x27;non-iterable passed to race()&#x27;));
+			}
+
+			// Sigh, race([]) is untestable unless we return *something*
+			// that is recognizable without calling .then() on it.
+			return promises.length === 0 ? never()
+				 : promises.length === 1 ? resolve(promises[0])
+				 : runRace(promises);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.reject" id="apidoc.element.mach.Promise.reject">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>reject
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reject(x) {
+			return new Promise(Handler, new Async(new Rejected(x)));
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            conn.response.content = value.content;
+
+          if (value.status != null)
+            conn.status = value.status;
+        }
+      });
+    } catch (error) {
+      return Promise.<span class="apidocCodeKeywordSpan">reject</span>(error);
+    }
+  })
+
+});
+
+module.exports = Connection;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.resolve" id="apidoc.element.mach.Promise.resolve">
+        function <span class="apidocSignatureSpan">mach.Promise.</span>resolve
+        <span class="apidocSignatureSpan">(x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve(x) {
+			return isPromise(x) ? x
+				: new Promise(Handler, new Async(getHandler(x)));
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   */
+  call: d(function (app) {
+    app = app || defaultApp;
+
+    var conn = this;
+
+    try {
+      return Promise.<span class="apidocCodeKeywordSpan">resolve</span>(app(conn)).then(function (value) {
+if (value == null)
+  return;
+
+if (typeof value === &#x27;number&#x27;) {
+  conn.status = value;
+} else if (typeof value === &#x27;string&#x27; || isBinary(value) || typeof value.pipe === &#x27;function&#x27;) {
+  conn.response.content = value;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mach.Promise.prototype" id="apidoc.module.mach.Promise.prototype">module mach.Promise.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.prototype._beget" id="apidoc.element.mach.Promise.prototype._beget">
+        function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>_beget
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_beget = function () {
+			return begetFrom(this._handler, this.constructor);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.prototype.catch" id="apidoc.element.mach.Promise.prototype.catch">
+        function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>catch
+        <span class="apidocSignatureSpan">(onRejected)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">catch = function (onRejected) {
+			return this.then(void 0, onRejected);
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * A middleware that &#x22;catches&#x22; non-Errors that are thrown from the downstream
+ * app and returns them instead. This can be useful for breaking out of a
+ * nested promise chain, for example.
+ *
+ * Example:
+ *
+ *   mach.<span class="apidocCodeKeywordSpan">catch</span>(function (conn) {
+ *     throw 200;
+ *   });
+ */
+function catchError(app) {
+return function (conn) {
+  return conn.call(app).then(undefined, function (reason) {
+    if (reason instanceof Error)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mach.Promise.prototype.then" id="apidoc.element.mach.Promise.prototype.then">
+        function <span class="apidocSignatureSpan">mach.Promise.prototype.</span>then
+        <span class="apidocSignatureSpan">(onFulfilled, onRejected, onProgress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">then = function (onFulfilled, onRejected, onProgress) {
+			var parent = this._handler;
+			var state = parent.join().state();
+
+			if ((typeof onFulfilled !== &#x27;function&#x27; &#x26;&#x26; state &#x3e; 0) ||
+				(typeof onRejected !== &#x27;function&#x27; &#x26;&#x26; state &#x3c; 0)) {
+				// Short circuit: value will not change, simply share handler
+				return new this.constructor(Handler, parent);
+			}
+
+			var p = this._beget();
+			var child = p._handler;
+
+			parent.chain(child, parent.receiver, onFulfilled, onRejected, onProgress);
+
+			return p;
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var app = mach.stack();
+
+app.use(mach.logger);
+
+app.get(&#x27;/users/:id&#x27;, function (conn) {
+  var id = conn.params.id;
+
+  return getUser(id).<span class="apidocCodeKeywordSpan">then</span>(function (user) {
+    conn.json(200, user);
+  });
+});
+```
+
+The call to `app.use` above illustrates how middleware is used to compose applications. Mach ships with the following middleware
+:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
